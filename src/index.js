@@ -3,19 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
-import { createStore } from 'redux';
+import { BrowserRouter, Router } from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux';
 import reducers from './redux/modules';
 import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
+import { createBrowserHistory } from 'history';
 
-const store = createStore(reducers);
+const customHistory = createBrowserHistory(); // thunk 미들웨어에서 history 객체 사용하기 위해서
+
+const store = createStore(reducers, applyMiddleware(ReduxThunk.withExtraArgument({ history: customHistory })));
 
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>,
+  <Router history={customHistory}>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </Router>,
   document.getElementById('root')
 
 );

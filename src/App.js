@@ -6,8 +6,9 @@ import { Route, Link } from 'react-router-dom';
 import About from './About';
 import Home from './Home';
 import Profile from './Profile';
-import Login from './pages/login/LoginPresenter';
+import Login from './pages/login/LoginContainer';
 import OAuthLogin from './pages/login/OAuthLogin';
+import Main from './pages/main/MainContainer';
 
 function test(){
   console.log('hitomi: ', hitomi);
@@ -24,7 +25,8 @@ const App = () => {
       <Route path="/" component={Login} exact={true}/>
       <Route path="/about" component={About}/>
       <Route path="/profile/:username" component={Profile}/>
-      <Route path='/auth/login' component={OAuthLogin}/>
+      <Route path='/login/kakao' component={OAuthLogin}/>
+      <Route path='/main' component={Main}/>
     </div>
   )
 }
