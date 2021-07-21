@@ -1,8 +1,9 @@
 import axios from "axios";
+import { useDispatch } from "react-redux";
 
 const SET_USERINFO = 'SET_USERINFO';
 
-export const setUserInfo = () => ({ type: SET_USERINFO });
+export const setUserInfo = (userInfo) => ({ type: SET_USERINFO, userInfo });
 
 const initialState = {
     userInfo: {}
@@ -33,6 +34,9 @@ export const getUserInfo = (code) => {
         })
         .then( res => {
             console.log('res: ', res);
+            setUserInfo(res.data);
+
+            history.push('/main');
         })
         .catch( err => {
             console.log('err: ', err);

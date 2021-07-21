@@ -4,7 +4,9 @@ const MainPresenter = () => {
 
     return (
         <div>
-            메인페이지
+            <span>
+                메인 페이지        
+            </span>
         </div>   
     )
 }
