@@ -6,6 +6,8 @@ import { Route, Link } from 'react-router-dom';
 import About from './About';
 import Home from './Home';
 import Profile from './Profile';
+import Login from './pages/login/LoginPresenter';
+import OAuthLogin from './pages/login/OAuthLogin';
 
 function test(){
   console.log('hitomi: ', hitomi);
@@ -19,24 +21,10 @@ function test(){
 const App = () => {
   return (
     <div>
-      <ul>
-        <li>
-          <Link to="/">
-            홈
-          </Link>
-        </li>
-        <li>
-          <Link to="/about">
-            소개
-          </Link>
-        </li>
-        <li>
-          <Link to="/profile/kimtaekju">김택주 프로필</Link>
-        </li>
-      </ul>
-      <Route path="/" component={Home} exact={true}/>
+      <Route path="/" component={Login} exact={true}/>
       <Route path="/about" component={About}/>
       <Route path="/profile/:username" component={Profile}/>
+      <Route path='/auth/login' component={OAuthLogin}/>
     </div>
   )
 }
