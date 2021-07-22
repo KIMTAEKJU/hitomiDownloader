@@ -35,9 +35,12 @@ export const getUserInfo = (code) => {
         .then( res => {
             console.log('res: ', res);
             console.log('dispatch: ', dispatch);
-            dispatch(setUserInfo());
-
             history.push('/main');
+            
+            return {
+                type: 'SET_USERINFO',
+                userInfo: res.data
+            }
         })
         .catch( err => {
             console.log('err: ', err);

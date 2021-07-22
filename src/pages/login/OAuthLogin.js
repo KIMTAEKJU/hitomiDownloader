@@ -10,8 +10,8 @@ const OAuthLogin = ({ location }) => {
     let code = new URL(window.location.href).searchParams.get("code");
     console.log('code: ', code);
 
-    useEffect( async() => {
-        await dispatch(userInfoActions.getUserInfo(code));
+    useEffect( () => {
+         dispatch(userInfoActions.getUserInfo(code));
     }, []);
 
     return (
