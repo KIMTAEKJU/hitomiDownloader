@@ -1,7 +1,8 @@
 import react from 'react';
 
-const MainPresenter = () => {
+const MainPresenter = (props) => {
 
+    console.log('this.props: ', props);
     return (
         <div>
             <span>

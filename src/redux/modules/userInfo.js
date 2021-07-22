@@ -34,7 +34,8 @@ export const getUserInfo = (code) => {
         })
         .then( res => {
             console.log('res: ', res);
-            setUserInfo(res.data);
+            console.log('dispatch: ', dispatch);
+            dispatch(setUserInfo());
 
             history.push('/main');
         })

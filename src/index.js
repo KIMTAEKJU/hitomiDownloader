@@ -11,7 +11,9 @@ import ReduxThunk from 'redux-thunk';
 import { createBrowserHistory } from 'history';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-const customHistory = createBrowserHistory(); // thunk 미들웨어에서 history 객체 사용하기 위해서
+const customHistory = createBrowserHistory({
+  forceRefresh: true
+}); // thunk 미들웨어에서 history 객체 사용하기 위해서
 
 const store = createStore(reducers, applyMiddleware(ReduxThunk.withExtraArgument({ history: customHistory }), composeWithDevTools));
 
