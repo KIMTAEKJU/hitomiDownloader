@@ -4,7 +4,6 @@ import hitomi from 'node-hitomi';
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import About from './About';
-import Home from './Home';
 import Profile from './Profile';
 import Login from './pages/login/LoginContainer';
 import OAuthLogin from './pages/login/OAuthLogin';

@@ -16,7 +16,8 @@ const customHistory = createBrowserHistory({
 }); // thunk 미들웨어에서 history 객체 사용하기 위해서
 
 const store = createStore(reducers, compose(
-  applyMiddleware(ReduxThunk.withExtraArgument({ history: customHistory }), composeWithDevTools)
+  applyMiddleware(ReduxThunk.withExtraArgument({ history: customHistory })),
+  composeWithDevTools()
 ));
 
 ReactDOM.render(

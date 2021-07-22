@@ -12,17 +12,18 @@ const initialState = {
 export default function reducer(state = initialState, action){
     switch(action.type){
         case SET_USERINFO:
-            applySetUserInfo(state, action);
-            break;
+            return applySetUserInfo(state, action);
         default:
             return state;
     }
 }
 
 export const applySetUserInfo = (state = initialState, action) => {
+    const { userInfo } = action;
+
     return {
         ...state,
-        userInfo: action.userInfo
+        userInfo
     }
 }
 
@@ -36,11 +37,9 @@ export const getUserInfo = (code) => {
             console.log('res: ', res);
             console.log('dispatch: ', dispatch);
             history.push('/main');
+
+            dispatch(setUserInfo(res.data))
             
-            return {
-                type: 'SET_USERINFO',
-                userInfo: res.data
-            }
         })
         .catch( err => {
             console.log('err: ', err);

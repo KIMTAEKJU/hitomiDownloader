@@ -8,6 +8,9 @@ const MainPresenter = (props) => {
             <span>
                 메인 페이지        
             </span>
+            <button onClick={props.countPlus}>
+                버튼
+            </button>
         </div>   
     )
 }
